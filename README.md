@@ -32,7 +32,7 @@ Budowanie obrazu: ```docker build -t oregano .```
 
 Uruchomienie: ``` docker run --name oregano -p 8080:8080 oregano```
 
-##API
+## API
 
 Aplikacja wystawia API administracyjne typu CRUD:
 
