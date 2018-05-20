@@ -3,9 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/basil/basil.iml" filepath="$PROJECT_DIR$/basil/basil.iml" />
-      <module fileurl="file://$PROJECT_DIR$/oregano/src/main/main.iml" filepath="$PROJECT_DIR$/oregano/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/oregano.iml" filepath="$PROJECT_DIR$/.idea/modules/oregano.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/oregano_main.iml" filepath="$PROJECT_DIR$/.idea/modules/oregano_main.iml" group="oregano" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/oregano_test.iml" filepath="$PROJECT_DIR$/.idea/modules/oregano_test.iml" group="oregano" />
       <module fileurl="file://$PROJECT_DIR$/.idea/spices.iml" filepath="$PROJECT_DIR$/.idea/spices.iml" />
-      <module fileurl="file://$PROJECT_DIR$/oregano/src/test/test.iml" filepath="$PROJECT_DIR$/oregano/src/test/test.iml" />
     </modules>
   </component>
 </project>

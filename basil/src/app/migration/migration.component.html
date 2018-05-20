@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="input-group">
+        <textarea class="form-control" aria-label="With textarea" rows="20" [(ngModel)]="data"></textarea>
+      </div>
+    </div>
+    <div class="col">
+      <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="dataType">
+        <label ngbButtonLabel class="btn-primary">
+          <input ngbButton type="radio" value="users"> Users
+        </label>
+        <label ngbButtonLabel class="btn-primary">
+          <input ngbButton type="radio" value="albums"> Albums
+        </label>
+        <label ngbButtonLabel class="btn-primary">
+          <input ngbButton type="radio" value="photos"> Photos
+        </label>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-success" (click)="importData()">Import</button>
+        <button type="button" class="btn btn-danger" (click)="exportData()">Export</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
