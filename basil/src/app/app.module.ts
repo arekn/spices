@@ -9,6 +9,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from "@angular/common/http";
 import { MessageComponent } from './message/message.component';
+import { HistoryComponent } from './history/history.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { MessageComponent } from './message/message.component';
     AppComponent,
     MigrationComponent,
     MenuComponent,
-    MessageComponent
+    MessageComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,

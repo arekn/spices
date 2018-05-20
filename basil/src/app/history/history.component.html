@@ -1,0 +1,8 @@
+<div class="container">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let history of historyLog"
+        [ngClass]="history.migrationType == 'IMPORT' ? 'list-group-item-info' :'list-group-item-warning' ">
+      {{history.id}}: {{history.timestamp | date: 'medium'}} - {{history.dataType}} -> {{history.migrationType}}
+    </li>
+  </ul>
+</div>
