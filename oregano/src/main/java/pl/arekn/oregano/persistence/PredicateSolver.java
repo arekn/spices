@@ -11,7 +11,6 @@ import java.util.List;
 @SuppressWarnings("unchecked")
 public class PredicateSolver {
 
-
     private final SearchCriteria criteria;
 
     public PredicateSolver(SearchCriteria criteria) {
