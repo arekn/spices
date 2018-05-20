@@ -7,18 +7,22 @@ import {MigrationComponent} from './migration/migration.component';
 import {MenuComponent} from './menu/menu.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from "@angular/common/http";
+import { MessageComponent } from './message/message.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MigrationComponent,
-    MenuComponent
+    MenuComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
