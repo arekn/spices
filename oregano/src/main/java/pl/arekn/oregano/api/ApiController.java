@@ -15,6 +15,7 @@ import pl.arekn.oregano.persistence.user.User;
 import pl.arekn.oregano.persistence.user.UserSpecificationBuilder;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
@@ -29,23 +30,23 @@ public class ApiController {
     }
 
     @GetMapping(value = "/user")
-    public List<User> searchUsers(@RequestParam(value = "search") String searchQuery) {
+    public List<User> searchUsers(@RequestParam(value = "search", required = false) Optional<String> searchQuery) {
         UserSpecificationBuilder builder = new UserSpecificationBuilder();
-        Specification<User> spec = specificationFactory.getSpecification(searchQuery, builder);
+        Specification<User> spec = specificationFactory.getSpecification(searchQuery.orElse(""), builder);
         return repositorySearch.findUsers(spec);
     }
 
     @GetMapping(value = "/photo")
-    public List<Photo> searchPhotos(@RequestParam(value = "search") String searchQuery) {
+    public List<Photo> searchPhotos(@RequestParam(value = "search", required = false) Optional<String> searchQuery) {
         PhotoSpecificationBuilder builder = new PhotoSpecificationBuilder();
-        Specification<Photo> spec = specificationFactory.getSpecification(searchQuery, builder);
+        Specification<Photo> spec = specificationFactory.getSpecification(searchQuery.orElse(""), builder);
         return repositorySearch.findPhotos(spec);
     }
 
     @GetMapping(value = "/album")
-    public List<Album> searchAlbums(@RequestParam(value = "search") String searchQuery) {
+    public List<Album> searchAlbums(@RequestParam(value = "search", required = false) Optional<String> searchQuery) {
         AlbumSpecificationBuilder builder = new AlbumSpecificationBuilder();
-        Specification<Album> spec = specificationFactory.getSpecification(searchQuery, builder);
+        Specification<Album> spec = specificationFactory.getSpecification(searchQuery.orElse(""), builder);
         return repositorySearch.findAlbums(spec);
     }
 

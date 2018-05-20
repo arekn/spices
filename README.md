@@ -1,27 +1,79 @@
-# Basil
+## Wymagania i Budowanie
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.0.
+#### Basil - GUI
 
-## Development server
+Do wybudowania wymagany jest [NodeJS & NPM](https://nodejs.org/en/download/) oraz [Angular CLI](https://github.com/angular/angular-cli) w wersji 1.7.0.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Instrukcja budowania:
 
-## Code scaffolding
+- przechodzimy do katalogu ```spices/basil```
+- instalujemy zależności poleceniem ```npm install```
+- budujemy projekt poleceniem angular-cli ```ng build```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Projekt jest tak skonfigurowany (plik ```angular-cli.json```), że wybudowana strona znajdzie się w katalogu ```/spices/oregano/src/main/resources/static```
 
-## Build
+#### Oregano - Backend
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Projekt używa [Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html), ale ze względu na to, ze na dzień dzisiejszy 21.05.2018 nie wydano jeszcze wersji [Lombok](https://projectlombok.org/), kompatybilnej z JDK10, wymagane jest JDK8.
 
-## Running unit tests
+Instrukcja budowania:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- przechodzimy do katalogu ```spices/oregano```
+- budujemy jar poleceniem ```./gradlew build```
+- gotowy jar znajduje się w katalogu ```/spices/oregano/build/libs/oregano-0.0.1-SNAPSHOT.jar```
+- można go uruchomić poleceniem ```java -jar oregano-0.0.1-SNAPSHOT.jar ```
+- korzystając z dowolnej przegladarki internetowej (najlepiej nie Edge/IE) wchodzimy na adres: ```http://localhost:8080/```
 
-## Running end-to-end tests
+#### Docker
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Wybudowany jar możemy uruchomić korzystając z Dockera
 
-## Further help
+Budowanie obrazu: ```docker build -t oregano .```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Uruchomienie: ``` docker run --name oregano -p 8080:8080 oregano```
+
+##API
+
+Aplikacja wystawia API administracyjne typu CRUD:
+
+- /user
+- /album
+- /photo
+
+Aplikacja posiada API z możliwością filtrowania zasobów:
+
+- /api/user
+- /api/album
+- /api/photo
+
+Api posiada dodatkowy argument ```search``` czyli ```/api/album?search=``` pozwalający na stworzenie query.
+Query składa się zapytań:
+- '>' - większe lub równe
+- '<' - mniejsze lub równe
+- ':' - takie samo
+
+Przykład:
+
+```/api/album?search=id>8,userId:1```
+
+Zwraca odpowiedź:
+
+```
+[
+    {
+        "id": 8,
+        "title": "qui fuga est a eum",
+        "userId": 1
+    },
+    {
+        "id": 9,
+        "title": "saepe unde necessitatibus rem",
+        "userId": 1
+    },
+    {
+        "id": 10,
+        "title": "distinctio laborum qui",
+        "userId": 1
+    }
+]
+```
